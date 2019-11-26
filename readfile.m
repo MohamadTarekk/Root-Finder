@@ -32,7 +32,7 @@ end
 % read input data
 method = fgetl(fid);
 f = fgetl(fid);
-if strcmp(method, 'fixed point')
+if strcmp(method, 'Fixed Point')
     g = fgetl(fid);
 else
     g = '';
@@ -57,16 +57,24 @@ elseif (Xin == -1)
 end
 % validate initial guess(es)
 x = str2num(Xin);
-method = lower(method);
 switch method
-    case {'fixed point', 'newton raphson'}
+    case {'Fixed Point', 'Newton Raphson'}
         if length(x) ~= 1
             error = 'There must be exactly 1 initial guess';
             return
         end
-    case {'bisection', 'regula falsi', 'secant'}
+    case {'Bisection', 'False Position'}
         if length(x) ~= 2
-            error = 'There must be exactly 2 initial guesses';
+            error = 'There must be exactly 2 initial bounds';
+            return
+        end
+        if x(1) >= x(2)
+            error = 'Upper bound must be greater than lower bound';
+            return
+        end
+    case 'Secant'
+        if length(x) ~= 2
+            error = 'There must be exactly 2 previous guesses';
             return
         end
     otherwise
