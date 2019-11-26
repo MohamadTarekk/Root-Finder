@@ -4,7 +4,7 @@ function [done] = checkConditions(i,maxNumberOfIterations,approximateError,epsil
         done = true;
     end
     
-    if (approximateError < epsilon)
+    if (approximateError < epsilon*100)
         done = true;
     end
     
