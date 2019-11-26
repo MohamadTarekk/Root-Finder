@@ -20,7 +20,7 @@ else
 end
 % check if file exists
 if (fid < 0)
-    error = 'Yuo did not choose a file';
+    error = 'You did not choose a file';
     method = '';
     f = '';
     g = '';
