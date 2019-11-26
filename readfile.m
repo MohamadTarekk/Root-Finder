@@ -1,4 +1,4 @@
-function [error, method, f, g, x, epsilon, max_iter] = readfile(directory)
+function [error, method, f, g, x, epsilon, max_iter] = readfile()
 %{
 file format:
 bisection       ->  root finding method
@@ -10,10 +10,17 @@ sqrt(-8*x + 7)  ->  G(x) (only in fixed point method)
 %}
 
 % open file
-fid = fopen(directory);
+filter = {'.txt'};
+[name, path] = uigetfile(filter);
+directory = [path name];
+if length(directory) == 2
+    fid = -1;
+else
+    fid = fopen(directory);
+end
 % check if file exists
 if (fid < 0)
-    error = 'File not found';
+    error = 'Yuo did not choose a file';
     method = '';
     f = '';
     g = '';
