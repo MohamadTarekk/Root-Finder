@@ -1,4 +1,6 @@
-function [i,root,data] = fixedPoint(f, g, xi, epsilon, maxNumberOfIterations)
+function [i,root,data,timeElapsed] = fixedPoint(f, g, xi, epsilon, maxNumberOfIterations)
+
+tic;
 
 data = 0;
 root = 0;
@@ -18,12 +20,12 @@ while true
     root = g(xi);
     approximateError = abs((root - xi)/root) * 100;
     
-    data(i,1) = i;
-    data(i,2) = xi;
-    data(i,3) = root;
-    data(i,4) = approximateError;
+%     data(i,1) = i;
+    data(i,1) = xi;
+    data(i,2) = root;
+    data(i,3) = approximateError;
     
-    fprintf('%2i  %f  %f  %f \n', i, xi, root, approximateError);   
+    %fprintf('%2i  %f  %f  %f \n', i, xi, root, approximateError);   
     
     [done] = checkConditions(i, maxNumberOfIterations, approximateError, epsilon, f, root);
     
@@ -34,7 +36,6 @@ while true
     i = i + 1;
     xi = root;
 end
-
-
+timeElapsed = toc;
 end
 
