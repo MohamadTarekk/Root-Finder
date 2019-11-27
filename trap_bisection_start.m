@@ -1,11 +1,13 @@
-function [data, i, done] = trap_bisection_start(f, xl, xu)
+function [data, i, done, error] = trap_bisection_start(f, xl, xu)
 % check if there are roots in the interval
 fl = f(xl);
 fu = f(xu);
+error = false;
 if(fl*fu > 0)
     data = [];
     i = [];
     done = 0;
+    error = true;
     errordlg('There is no change in the sign of the function over this interval.');
     return;
 end

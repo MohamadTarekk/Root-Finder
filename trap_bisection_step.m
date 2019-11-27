@@ -12,9 +12,9 @@ fr = f(xr);
 xr_old = data(i-1,5);
 Erelative = (abs(xr - xr_old)/xr) * 100;
 % populate data table
-data(1,5) = xr;
-data(1,6) = fr;
-data(1,7) = Erelative;
+data(i,5) = xr;
+data(i,6) = fr;
+data(i,7) = Erelative;
 % check if desired accuracy reached
 if(Erelative < es)
     done = 1;
