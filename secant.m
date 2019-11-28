@@ -6,6 +6,28 @@ data = 0;
 root = 0;
 i = 1;
 
+if f(xiMinusOne) == 0
+    root = xiMinusOne;
+    data(1,1) = xiMinusOne;
+    data(1,2) = f(xiMinusOne);
+    data(1,3) = xi;
+    data(1,4) = f(xi);
+    data(1,5) = xiMinusOne;
+    data(1,6) = 0;
+    timeElapsed = toc;
+    return;
+elseif f(xi) == 0
+    root = xi;
+    data(1,1) = xiMinusOne;
+    data(1,2) = f(xiMinusOne);
+    data(1,3) = xi;
+    data(1,4) = f(xi);
+    data(1,5) = xi;
+    data(1,6) = 0;
+    timeElapsed = toc;
+    return;
+end
+
 while true
     
     root = xi - ((f(xi)*(xiMinusOne - xi))/(f(xiMinusOne) - f(xi)));

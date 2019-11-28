@@ -6,6 +6,15 @@ data = 0;
 root = 0;
 i = 1;
 
+if f(xi) == 0
+    root = xi;
+    data(1,1) = xi;
+    data(1,2) = xi;
+    data(1,3) = 0;
+    timeElapsed = toc;
+    return;
+end
+
 syms x
 differentiation = eval(['@(x)' char(diff(g(x)))]);
 result = abs(differentiation(xi));

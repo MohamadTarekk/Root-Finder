@@ -9,6 +9,18 @@ i = 1;
 syms x
 differentiation = eval(['@(x)' char(diff(f(x)))]);
 
+if f(xi) == 0
+    root = xi;
+    data(1,1) = xi;
+    data(1,2) = 0;
+    data(1,3) = differentiation(xi);
+    data(1,4) = xi;
+    data(1,5) = 0;
+    timeElapsed = toc;
+    return;
+end
+
+
 %x(i+1) = x(i) - f(x) / f'(x)   
 
 while true
