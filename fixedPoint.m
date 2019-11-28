@@ -11,6 +11,8 @@ differentiation = eval(['@(x)' char(diff(g(x)))]);
 result = abs(differentiation(xi));
 
 if result >= 1
+    i = 0;
+    timeElapsed = toc;
     errordlg('Functions diverges, Change g(x).');
     return;
 end

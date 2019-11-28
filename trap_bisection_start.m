@@ -10,6 +10,30 @@ if(fl*fu > 0)
     error = true;
     errordlg('There is no change in the sign of the function over this interval.');
     return;
+elseif(fl == 0)
+    data(1,1) = xl;
+    data(1,2) = fl;
+    data(1,3) = xu;
+    data(1,4) = fu;
+    data(1,5) = xl;
+    data(1,6) = fl;
+    data(1,7) = 0;
+    i = 1;
+    done = 1;
+    error = false;
+    return;
+elseif(fu == 0)
+    data(1,1) = xl;
+    data(1,2) = fl;
+    data(1,3) = xu;
+    data(1,4) = fu;
+    data(1,5) = xu;
+    data(1,6) = fu;
+    data(1,7) = 0;
+    i = 1;
+    done = 1;
+    error = false;
+    return;
 end
 % calculate new root
 xr = (xl+xu)/2;

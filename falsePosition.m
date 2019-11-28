@@ -4,9 +4,35 @@ tic;
 
 data = 0;
 root = 0;
-
+    
 if (f(lower) * f(upper) > 0)
+    i = 0;
+    timeElapsed = toc;
     errordlg('There is no change in the sign of the function over this interval.');
+    return;
+elseif f(lower) == 0
+    i = 1;
+    root = lower;
+    data(1,1) = lower;
+    data(1,2) = f(lower);
+    data(1,3) = upper;
+    data(1,4) = f(upper);
+    data(1,5) = lower;
+    data(1,6) = f(lower);
+    data(1,7) = 0;
+    timeElapsed = toc;
+    return;
+elseif f(upper) == 0
+    i = 1;
+    root = upper;
+    data(1,1) = lower;
+    data(1,2) = f(lower);
+    data(1,3) = upper;
+    data(1,4) = f(upper);
+    data(1,5) = upper;
+    data(1,6) = f(upper);
+    data(1,7) = 0;
+    timeElapsed = toc;
     return;
 else
     root = ((lower*f(upper)) - (upper*f(lower))) / (f(upper) - f(lower)); 
